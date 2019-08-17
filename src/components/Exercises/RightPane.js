@@ -1,7 +1,17 @@
 import React from 'react'
-import {Paper} from '@material-ui/core'
+import {Paper, Typography} from '@material-ui/core'
 
 export default props => (
 
-    <Paper style={props.styles}>Right pane</Paper>
+    <Paper style={props.styles}>
+    <Typography variant="h6">
+        Welcome!
+
+    </Typography>
+    <Typography variant="subtitle1">
+       Please select exercise from the left.
+
+    </Typography>
+    
+    </Paper>
 )

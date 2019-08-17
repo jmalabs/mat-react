@@ -9,16 +9,33 @@ import {
 } from '../components/Layouts'
 
 import Exercises from './Exercises'
-import {exercise, muscles} from '../store'
+import {exercises, muscles} from '../store'
 
 
 export default class extends Component{
 
+  state = {
+    exercises
+  }
+
+  getExerciesByMuscle(){
+    return Object.entries(this.state.exercises.reduce((exes, ex) => {
+
+      const {muscles} = ex;
+
+      exes[muscles] = exes[muscles]? [...exes[muscles], ex]: [ex];
+
+      return exes;
+
+    }, {}));
+  }
+  
   render() {
+    const exercises = this.getExerciesByMuscle();
     return <Fragment>
       
      <Header/>
-     <Exercises/>
+     <Exercises exercises={exercises}/>
      <Footer muscles={muscles}/>
       
       </Fragment>
