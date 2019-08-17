@@ -9,6 +9,7 @@ import {
 } from '../components/Layouts'
 
 import Exercises from './Exercises'
+import {exercise, muscles} from '../store'
 
 
 export default class extends Component{
@@ -18,7 +19,7 @@ export default class extends Component{
       
      <Header/>
      <Exercises/>
-     <Footer/>
+     <Footer muscles={muscles}/>
       
       </Fragment>
 
