@@ -12,7 +12,7 @@ const styles = {
 export default props => (
   <Grid container>
     <Grid item sm>
-      <LeftPane styles={styles.Paper} exercises={props.exercises}/>
+      <LeftPane styles={styles.Paper} category = {props.category} exercises={props.exercises}/>
     </Grid>
     <Grid item sm>
      <RightPane styles={styles.Paper} />

@@ -15,7 +15,16 @@ import {exercises, muscles} from '../store'
 export default class extends Component{
 
   state = {
-    exercises
+    exercises,
+    category: ''
+  }
+
+  handleCategorySelected = category => {
+    console.log(JSON.stringify('this.state'))
+    console.log(JSON.stringify(this.state))
+    this.setState({
+      category
+    })
   }
 
   getExerciesByMuscle(){
@@ -31,12 +40,19 @@ export default class extends Component{
   }
   
   render() {
-    const exercises = this.getExerciesByMuscle();
+
+    
+    const exercises = this.getExerciesByMuscle()
+    console.log(JSON.stringify(exercises))
+    const {category} = this.state;
     return <Fragment>
       
      <Header/>
-     <Exercises exercises={exercises}/>
-     <Footer muscles={muscles}/>
+     <Exercises exercises={exercises}
+      category = {category}/>
+     <Footer muscles={muscles} 
+      onSelect={this.handleCategorySelected}
+      category = {category}/>
       
       </Fragment>
 
